@@ -1,0 +1,23 @@
+<sly data-sly-test.componentName="dwg2-headline-plank"/>
+<div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="${'Headline DWG Plank' @ i18n}"></div>
+<sly data-sly-use.dwg2="com.tekno.core.models.Dwg2Headline">
+<div class="${componentName}__wrapper">
+	<div class="${componentName}__grid-container ${componentName}__${properties.theme}">
+		<div class="${componentName}__eyebrow-container">
+			${dwg2.firstTitle}
+		</div>
+		<div class="${componentName}__headline">
+			${dwg2.headlineText}
+		</div>
+		<div class="${componentName}__copy-txt">
+			${dwg2.text @ context = 'html'}
+		</div>
+		<div data-sly-list.item="${dwg2.buttonoptional}" class="${componentName}__rich-text">
+            
+			<a href="${item.buttonURL}" class="${componentName}__transparent-btn">
+                ${item.buttonText} : ${item.buttonURL}
+			</a>
+		</div>
+	</div>
+</div>
+</sly>

@@ -1,0 +1,84 @@
+<sly data-sly-use.model="com.dropbox.cms.dmep.components.articles.ArticleListComponent"></sly>
+
+
+<sly
+        data-sly-use.placeholder="core/wcm/components/commons/v1/templates.html"
+        data-sly-call="${placeholder.placeholder @ isEmpty=true}"></sly>
+
+<section class="c08-related-articles four-column-articles ${request.requestPathInfo.selectors}"
+         data-component="c08-related-articles" data-component-instance="${currentNode.identifier}">
+    <header class="four-column-articles__header">
+        <h2 class="four-column-articles__title">${properties.title}</h2>
+        <a data-sly-use.linkUtil="${'com.dropbox.aem.common.models.utils.LinkUtilUse' @ url=properties.ctaLink}"
+           class="button button--articles" href="${linkUtil.url}">
+            <span class="button__label">${properties.ctaTitle}</span>
+        </a>
+    </header>
+
+    <div class="four-column-articles__items" data-sly-list="${model.articles}">
+        <article class="four-column-articles__item"
+                 data-sly-use.linkUtil="${'com.dropbox.aem.common.models.utils.LinkUtilUse' @ url=item.link}">
+            <p class="four-column-articles__item-tag">${item.tag}</p>
+            <sly data-sly-use.mappedUrl="${'com.dropbox.cms.dmep.util.ImageOptimizationUtil' @ path = item.image}"/>
+			<sly data-sly-test.mappedImagePath="${mappedUrl.resolvedPath @ context='uri'}"/>
+     		<sly data-sly-use.assetPath="${'com.dropbox.cms.dmep.util.ImageOptimizationUtil' @ desktopImage = item.image}" />
+			<sly data-sly-test.optImagePath="${assetPath.desktopImage @ context='uri'}"/>
+            <figure class="four-column-articles__item-figure">
+                <a href="${linkUtil.url}" target="${item.target}">
+                    <img data-sly-test="${item.image}" class="four-column-articles__item-image"
+                         loading="lazy"
+                         src="${optImagePath}"
+                         onerror="this.src='${mappedImagePath @ context='html'}'"
+                         alt="${item.text}"/>
+                </a>
+            </figure>
+            <h3 class="four-column-articles__item-text">
+                <a target="${item.target}" href="${linkUtil.url}">${item.title}</a>
+            </h3>
+
+
+            <sly data-sly-test="${item.resource.enableButton}" data-sly-unwrap>
+
+
+                <button data-sly-test='${item.resource.btnType == "kaltura"}'
+                        class="button button--text-only button--video"
+                        data-button="true"
+                        data-wid="${item.resource.kalturaBtnVideoId}"
+                        data-uiconfid="${item.resource.kalturaBtnUiconfId}"
+                        data-entryid="${item.resource.kalturaBtnEntryId}"
+                        data-type="kaltura-video"
+                        data-modal-aria-close-label="${'Close modal' @ i18n}"
+                        data-title="${item.resource.kalturaBtnTitle}"
+                        tabindex="0"
+                >
+                    <span class="button__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+                            <path d="M16.84,3A8.17,8.17,0,0,1,25,11.16v5.68A8.17,8.17,0,0,1,16.84,25H11.16A8.17,8.17,0,0,1,3,16.84V11.16A8.17,8.17,0,0,1,11.16,3h5.68m0-3H11.16A11.16,11.16,0,0,0,0,11.16v5.68A11.16,11.16,0,0,0,11.16,28h5.68A11.16,11.16,0,0,0,28,16.84V11.16A11.16,11.16,0,0,0,16.84,0Z"></path>
+                            <polygon points="20.07 13.9 9.85 8 9.85 19.8 20.07 13.9"></polygon>
+                        </svg>
+                    </span>
+                    <span class="button__label">${item.resource.label}</span>
+                </button>
+
+
+                <button data-sly-test='${item.resource.btnType == "youtube"}'
+                        class="button button--text-only button--video"
+                        data-button="true"
+                        data-type="youtube-video"
+                        data-modal-aria-close-label="${'Close modal' @ i18n}"
+                        data-video="${item.resource.youtubeBtnVideoId}"
+                        data-title="${item.resource.youtubeBtnTitle}"
+                >
+                    <span class="button__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+                            <path d="M16.84,3A8.17,8.17,0,0,1,25,11.16v5.68A8.17,8.17,0,0,1,16.84,25H11.16A8.17,8.17,0,0,1,3,16.84V11.16A8.17,8.17,0,0,1,11.16,3h5.68m0-3H11.16A11.16,11.16,0,0,0,0,11.16v5.68A11.16,11.16,0,0,0,11.16,28h5.68A11.16,11.16,0,0,0,28,16.84V11.16A11.16,11.16,0,0,0,16.84,0Z" />
+                            <polygon points="20.07 13.9 9.85 8 9.85 19.8 20.07 13.9" />
+                        </svg>
+                    </span>
+                    <span class="button__label">${item.resource.label}</span>
+                </button>
+            </sly>
+
+        </article>
+    </div>
+</section>
