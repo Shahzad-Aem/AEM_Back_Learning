@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+D:\Wkknd-Tutorial\WkkndWorkSpace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3724825739.index
+252623368.index
+1442450236.index
+2766569877.index
+2945746041.index
+4273683006.index

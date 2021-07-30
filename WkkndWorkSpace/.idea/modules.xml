@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/WkkndWorkSpace.iml" filepath="$PROJECT_DIR$/.idea/WkkndWorkSpace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wkknd/wkknd.iml" filepath="$PROJECT_DIR$/wkknd/wkknd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wkknd/core/wkknd.core.iml" filepath="$PROJECT_DIR$/wkknd/core/wkknd.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wkknd/ui.apps/wkknd.ui.apps.iml" filepath="$PROJECT_DIR$/wkknd/ui.apps/wkknd.ui.apps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wkknd/ui.content/wkknd.ui.content.iml" filepath="$PROJECT_DIR$/wkknd/ui.content/wkknd.ui.content.iml" />
+    </modules>
+  </component>
+</project>

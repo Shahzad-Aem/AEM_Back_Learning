@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wkknd.core" />
+        <module name="wkknd.ui.apps" />
+        <module name="wkknd.ui.content" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wkknd" target="1.8" />
+      <module name="wkknd.core" target="1.8" />
+      <module name="wkknd.ui.apps" target="1.8" />
+      <module name="wkknd.ui.content" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
